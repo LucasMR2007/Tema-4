@@ -12,6 +12,8 @@ public class Ejercico3Arrays {
 		imprimirNumeros(numeros);
 		numeroMayor(numeros);
 		System.out.println(numeroMayor(numeros));
+		System.out.println("La suma de los numeros es: " + sumaNumeros(numeros));
+		System.out.println("La media de los numeros es: " + mediaNumeros(numeros));
 
 	}
 
@@ -41,4 +43,18 @@ public class Ejercico3Arrays {
 		return numeros[0];
 
 	}
+
+	public static int sumaNumeros(int numeros[]) {
+		int suma = 0;
+		for (int i = 0; i < numeros.length; i++) {
+			suma += numeros[i];
+		}
+		return suma;
+	}
+
+	public static float mediaNumeros(int numeros[]) {
+		float media = (float) sumaNumeros(numeros) / numeros.length;
+		return media;
+	}
+
 }
