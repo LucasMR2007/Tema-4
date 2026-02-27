@@ -14,10 +14,11 @@ public class Ejercicio12Arrays {
 		do {
 			System.out.println("Introduzca posicion que desea borrar");
 			posicion = teclado.nextInt();
-			borrarPosicion(array, posicion);
+			array=borrarPosicion(array, posicion);
 
-		} while (posicion > 0 || posicion < 9);
+		} while (posicion >= 0 && posicion <= 9);
 		System.out.println("Saliendo del programa");
+		teclado.close();
 
 	}
 
@@ -37,15 +38,22 @@ public class Ejercicio12Arrays {
 
 	public static int[] borrarPosicion(int[] array, int posicion) {
 		int[] nuevoArray = new int[array.length - 1];
+		if (posicion < 0 || posicion > 9) {
+			System.out.println("Error");
+		} else {
+			
+			int contador = 0;
+			for (int i = 0; i < array.length; i++) {
+				if (i != posicion) {
+					nuevoArray[contador] = array[i];
+					contador++;
 
-		for (int i = 0; i < array.length - 1; i++) {
-			nuevoArray[i] = array[i];
-			if (nuevoArray[i] == posicion) {
-				nuevoArray[i] = array[i + 1];
+				}
+
 			}
-
+			imprimirNumeros(nuevoArray);
 		}
-		imprimirNumeros(nuevoArray);
+		
 		return nuevoArray;
 	}
 }
